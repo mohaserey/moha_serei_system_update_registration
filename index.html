@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="km" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ចុះឈ្មោះសមាជិកបណ្ដាញ - Mohaserei System Update Registration (MSN)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts (Kantumruy Pro) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-full flex flex-col">
+
+    <!-- Top Header Navigation -->
+    <header class="bg-[#1b4d3e] text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Title with Logo -->
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <img src="mohaserey.jpg" alt="Mohaserei Logo" onerror="this.src='https://via.placeholder.com/50?text=MSN'" class="w-12 h-12 rounded-full object-cover border-2 border-[#d4af37] shadow-md">
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-bold tracking-wide text-[#d4af37]">បណ្ដាញមហាសិរី (Mohaserei)</h1>
+                        <p class="text-xs text-emerald-200">ប្រព័ន្ធចុះឈ្មោះសមាជិកបណ្ដាញទូទាំងប្រទេស (MSN)</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Action Links -->
+                <div class="flex items-center space-x-3 space-x-reverse">
+                    <a href="mohaserey_system_update_dashboard.html" class="px-4 py-2 rounded-xl text-sm font-semibold transition bg-white/10 hover:bg-white/20 text-white flex items-center space-x-2 space-x-reverse">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>ត្រឡប់ទៅដက်សប៊อร์ด</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Form Container -->
+    <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+            
+            <!-- Form Header Banner -->
+            <div class="bg-gradient-to-r from-[#1b4d3e] to-[#285d4f] p-8 text-white text-center relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 w-48 h-48 bg-[#d4af37]/10 rounded-full blur-2xl pointer-events-none"></div>
+                <span class="inline-block bg-[#d4af37]/20 text-[#d4af37] text-xs font-bold px-3 py-1 rounded-full border border-[#d4af37]/30 mb-3">MSN-MEM-001 Registration Module</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">ទម្រង់ចុះឈ្មោះសមាជិកបណ្ដាញតាមខេត្ត រាជធានី ស្រុក/ខណ្ឌ ឃុំ/សង្កាត់</h2>
+                <p class="text-emerald-100 text-sm mt-2 max-w-2xl mx-auto">
+                    សូមបំពេញព័ត៌មានផ្ទាល់ខ្លួន ទីតាំងភូមិសាស្ត្រ និងជ្រើសរើសប្រភេទចូលរួមក្នុងប្រព័ន្ធសេដ្ឋកិច្ចផ្អែកលើការចូលរួមរបស់បណ្ដាញមហាសិរី (Mohaserei Network)។
+                </p>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="registration-form" onsubmit="handleRegistrationSubmit(event)" class="p-6 sm:p-10 space-y-8">
+                
+                <!-- Section 1: Personal Info -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-[#1b4d3e] flex items-center gap-2 pb-2 border-b border-slate-100">
+                        <i class="fa-solid fa-user-pen text-[#d4af37]"></i>
+                        <span>១. ព័ត៌មានផ្ទាល់ខ្លួន និងទំនាក់ទំនង (Personal Information)</span>
+                    </h3>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">ឈ្មោះពេញ (Full Name) <span class="text-red-500">*</span></label>
+                            <input type="text" id="reg-name" required placeholder="ឧ. ចាន់ សុភា" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">ភេទ (Gender) <span class="text-red-500">*</span></label>
+                            <select id="reg-gender" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm bg-white">
+                                <option value="ប្រុស">ប្រុស (Male)</option>
+                                <option value="ស្រី">ស្រី (Female)</option>
+                                <option value="ផ្សេងៗ">ផ្សេងៗ (Other)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">លេខទូរស័ព្ទ (Phone Number) <span class="text-red-500">*</span></label>
+                            <input type="tel" id="reg-phone" required placeholder="ឧ. 012 345 678" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">មុខរបរ ឬតួនាទីបច្ចុប្បន្ន (Current Occupation)</label>
+                            <input type="text" id="reg-occupation" placeholder="ឧ. អាជីវករ, និស្សិត, កសិករ..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Geographic Hierarchy -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-[#1b4d3e] flex items-center gap-2 pb-2 border-b border-slate-100">
+                        <i class="fa-solid fa-map-location-dot text-[#d4af37]"></i>
+                        <span>២. ទីតាំងភូមិសាស្ត្របណ្ដាញ (រាជធានី ខេត្ត ស្រុក ខណ្ឌ ឃុំ សង្កាត់)</span>
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">រាជធានី / ខេត្ត <span class="text-red-500">*</span></label>
+                            <select id="reg-province" onchange="updateDistricts()" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm bg-white">
+                                <option value="">-- ជ្រើសរើសខេត្ត/រាជធានី --</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">ស្រុក / ខណ្ឌ / ក្រុង <span class="text-red-500">*</span></label>
+                            <select id="reg-district" onchange="updateCommunes()" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm bg-white">
+                                <option value="">-- ជ្រើសរើសស្រុក/ខណ្ឌ --</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">ឃុំ / សង្កាត់ <span class="text-red-500">*</span></label>
+                            <select id="reg-commune" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm bg-white">
+                                <option value="">-- ជ្រើសរើសឃុំ/សង្កាត់ --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1.5">អាសយដ្ឋានលម្អិត (ផ្ទះលេខ ផ្លូវ ភូមិ)</label>
+                        <input type="text" id="reg-address" placeholder="ឧ. ផ្ទះលេខ 12A, ផ្លូវបេតុង, ភូមិសាគរ" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm">
+                    </div>
+                </div>
+
+                <!-- Section 3: 5 Participation Categories -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-bold text-[#1b4d3e] flex items-center gap-2 pb-2 border-b border-slate-100">
+                        <i class="fa-solid fa-layer-group text-[#d4af37]"></i>
+                        <span>៣. ប្រភេទចូលរួមក្នុងបណ្ដាញ (Participation Categories - ជ្រើសរើសយ៉ាងតិច ១) <span class="text-red-500">*</span></span>
+                    </h3>
+
+                    <div class="space-y-4">
+                        <!-- Category 1 -->
+                        <div class="border border-slate-200 rounded-2xl p-5 hover:border-[#d4af37] transition bg-slate-50/50">
+                            <label class="flex items-start space-x-3 space-x-reverse cursor-pointer">
+                                <input type="checkbox" name="participation_cat" value="កម្លាំងពលកម្ម + ពេលវេលា" class="mt-1 w-5 h-5 text-[#1b4d3e] rounded focus:ring-[#1b4d3e]">
+                                <div class="flex-1">
+                                    <span class="font-bold text-slate-900 block text-base">១. អ្នកមានកម្លាំងពលកម្ម + ពេលវេលា</span>
+                                    <span class="text-xs text-slate-600 block mt-0.5">ភ្នាក់ងារ សមាជិក សកម្ម និង អសកម្ម ដែលលក់ និងដឹកជញ្ជូនផ្ទាល់។</span>
+                                </div>
+                            </label>
+                            <div class="mt-3 pr-8 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat1" value="ភ្នាក់ងារលក់ផ្ទាល់" class="rounded text-[#1b4d3e]"> <span>ភ្នាក់ងារលក់ផ្ទាល់</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat1" value="សមាជិកសកម្ម" class="rounded text-[#1b4d3e]"> <span>សមាជិកសកម្ម</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat1" value="សមាជិកអសកម្ម" class="rounded text-[#1b4d3e]"> <span>សមាជិកអសកម្ម</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat1" value="ផ្នែកដឹកជញ្ជូន" class="rounded text-[#1b4d3e]"> <span>ផ្នែកដឹកជញ្ជូន</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Category 2 -->
+                        <div class="border border-slate-200 rounded-2xl p-5 hover:border-[#d4af37] transition bg-slate-50/50">
+                            <label class="flex items-start space-x-3 space-x-reverse cursor-pointer">
+                                <input type="checkbox" name="participation_cat" value="អ្នកមានចំណេះជំនាញ" class="mt-1 w-5 h-5 text-[#1b4d3e] rounded focus:ring-[#1b4d3e]">
+                                <div class="flex-1">
+                                    <span class="font-bold text-slate-900 block text-base">២. អ្នកមានចំណេះជំនាញ</span>
+                                    <span class="text-xs text-slate-600 block mt-0.5">គណនេយ្យ + បណ្ដុះបណ្ដាល + បច្ចេកវិទ្យា + បច្ចេកទេស។</span>
+                                </div>
+                            </label>
+                            <div class="mt-3 pr-8 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat2" value="គណនេយ្យ/ហិរញ្ញវត្ថុ" class="rounded text-[#1b4d3e]"> <span>គណនេយ្យ/ហិរញ្ញវត្ថុ</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat2" value="បណ្ដុះបណ្ដាល/គ្រូបង្វឹក" class="rounded text-[#1b4d3e]"> <span>បណ្ដុះបណ្ដាល</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat2" value="បច្ចេកវិទ្យា (IT)" class="rounded text-[#1b4d3e]"> <span>បច្ចេកវិទ្យា (IT)</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat2" value="បច្ចេកទេសជំនាញ" class="rounded text-[#1b4d3e]"> <span>បច្ចេកទេសជំនាញ</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Category 3 -->
+                        <div class="border border-slate-200 rounded-2xl p-5 hover:border-[#d4af37] transition bg-slate-50/50">
+                            <label class="flex items-start space-x-3 space-x-reverse cursor-pointer">
+                                <input type="checkbox" name="participation_cat" value="អ្នកមានធនធាន" class="mt-1 w-5 h-5 text-[#1b4d3e] rounded focus:ring-[#1b4d3e]">
+                                <div class="flex-1">
+                                    <span class="font-bold text-slate-900 block text-base">៣. អ្នកមានធនធាន</span>
+                                    <span class="text-xs text-slate-600 block mt-0.5">ទ្រព្យសម្បត្តិ + ហិរញ្ញវត្ថុ / ដើមទុន និងមធ្យោបាយផ្សេងៗ។</span>
+                                </div>
+                            </label>
+                            <div class="mt-3 pr-8 grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat3" value="ធនធានហិរញ្ញវត្ថុ/ទុន" class="rounded text-[#1b4d3e]"> <span>ធនធានហិរញ្ញវត្ថុ/ទុន</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat3" value="ទ្រព្យសម្បត្តិ/អចលនទ្រព្យ" class="rounded text-[#1b4d3e]"> <span>ទ្រព្យសម្បត្តិ/អចលនទ្រព្យ</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat3" value="មធ្យោបាយភស្តុភារ" class="rounded text-[#1b4d3e]"> <span>មធ្យោបាយភស្តុភារ</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Category 4 -->
+                        <div class="border border-slate-200 rounded-2xl p-5 hover:border-[#d4af37] transition bg-slate-50/50">
+                            <label class="flex items-start space-x-3 space-x-reverse cursor-pointer">
+                                <input type="checkbox" name="participation_cat" value="អ្នកមានបណ្ដាញទំនាក់ទំនង" class="mt-1 w-5 h-5 text-[#1b4d3e] rounded focus:ring-[#1b4d3e]">
+                                <div class="flex-1">
+                                    <span class="font-bold text-slate-900 block text-base">៤. អ្នកមានបណ្ដាញទំនាក់ទំនង</span>
+                                    <span class="text-xs text-slate-600 block mt-0.5">ធនធានមនុស្ស + បណ្ដាញអាជីវកម្ម និងទំនាក់ទំនងទូលំទូលាយ។</span>
+                                </div>
+                            </label>
+                            <div class="mt-3 pr-8 grid grid-cols-2 sm:grid-cols-2 gap-2">
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat4" value="បណ្ដាញធនធានមនុស្ស" class="rounded text-[#1b4d3e]"> <span>បណ្ដាញធនធានមនុស្ស</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat4" value="បណ្ដាញអាជីវកម្មទូទៅ" class="rounded text-[#1b4d3e]"> <span>បណ្ដាញអាជីវកម្មទូទៅ</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Category 5 -->
+                        <div class="border border-slate-200 rounded-2xl p-5 hover:border-[#d4af37] transition bg-slate-50/50">
+                            <label class="flex items-start space-x-3 space-x-reverse cursor-pointer">
+                                <input type="checkbox" name="participation_cat" value="អ្នកម្ចាស់អាជីវកម្ម" class="mt-1 w-5 h-5 text-[#1b4d3e] rounded focus:ring-[#1b4d3e]">
+                                <div class="flex-1">
+                                    <span class="font-bold text-slate-900 block text-base">៥. អ្នកម្ចាស់អាជីវកម្ម</span>
+                                    <span class="text-xs text-slate-600 block mt-0.5">ម្ចាស់តូប + សិប្បកម្ម + សហគមន៍ + សហគ្រាស + រោងចក្រ។</span>
+                                </div>
+                            </label>
+                            <div class="mt-3 pr-8 grid grid-cols-2 sm:grid-cols-5 gap-2">
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat5" value="ម្ចាស់តូប/ហាង" class="rounded text-[#1b4d3e]"> <span>ម្ចាស់តូប/ហាង</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat5" value="សិប្បកម្ម" class="rounded text-[#1b4d3e]"> <span>សិប្បកម្ម</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat5" value="សហគមន៍" class="rounded text-[#1b4d3e]"> <span>សហគមន៍</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat5" value="សហគ្រាស (SME)" class="rounded text-[#1b4d3e]"> <span>សហគ្រាស (SME)</span></label>
+                                <label class="text-xs flex items-center space-x-2 space-x-reverse text-slate-700"><input type="checkbox" name="sub_cat5" value="រោងចក្រ" class="rounded text-[#1b4d3e]"> <span>រោងចក្រ</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notes -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1.5">ចំណាំ ឬសំណូមពរបន្ថែម (Notes)</label>
+                    <textarea id="reg-notes" rows="3" placeholder="ព័ត៌មានបន្ថែមទាក់ទងនឹងជំនាញ ឬបំណងប្រាថ្នាក្នុងការចូលរួម..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#1b4d3e] text-slate-800 text-sm"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4 flex items-center justify-end gap-3">
+                    <a href="mohaserey_system_update_dashboard.html" class="px-6 py-3 rounded-xl border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-100 transition">
+                        បោះបង់
+                    </a>
+                    <button type="submit" class="px-8 py-3 rounded-xl bg-[#1b4d3e] text-[#d4af37] font-bold text-sm shadow-lg hover:bg-[#153b2f] transition flex items-center space-x-2 space-x-reverse">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>រក្សាទុក និងចុះឈ្មោះសមាជិក</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl space-y-4 text-center">
+            <div class="w-16 h-16 rounded-full bg-emerald-100 text-[#1b4d3e] flex items-center justify-center mx-auto text-2xl shadow-inner">
+                <i class="fa-solid fa-check text-3xl text-[#d4af37]"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">ចុះឈ្មោះជោគជ័យ!</h3>
+            <p class="text-slate-600 text-sm">សមាជិកបណ្ដាញថ្មីត្រូវបានរក្សាទុកក្នុងប្រព័ន្ធ Mohaserei Network ដោយជោគជ័យ។</p>
+            <div class="pt-2">
+                <button onclick="window.location.href='mohaserey_system_update_dashboard.html'" class="w-full bg-[#1b4d3e] text-[#d4af37] font-bold py-3 rounded-xl transition text-sm hover:bg-[#153b2f]">
+                    ត្រឡប់ទៅដက်សប៊อร์ดជាតិ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 mt-12 border-t border-slate-800 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 space-y-1">
+            <p class="font-medium text-[#d4af37]">Mohaserei System Update (MSN) &copy; 2026-2052</p>
+            <p>ប្រព័ន្ធសេដ្ឋកិច្ចផ្អែកលើការចូលរួម និងគ្រប់គ្រងបណ្ដាញទូទាំងប្រទេស</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Full Cambodia Geographic Hierarchy Mock Data
+        const cambodiaGeography = {
+            "រាជធានីភ្នំពេញ": {
+                "ខណ្ឌដូនពេញ": ["សង្កាត់ផ្សារកណ្ដាលទី១", "សង្កាត់ផ្សារកណ្ដាលទី២", "សង្កាត់ផ្សារចាស់", "សង្កាត់ស្រះចក", "សង្កាត់វត្តភ្នំ", "សង្កាត់ចតុមុខ"],
+                "ខណ្ឌចំការមន": ["សង្កាត់ទន្លេបាសាក់", "សង្កាត់បឹងកេងកងទី១", "សង្កាត់បឹងកេងកងទី២", "សង្កាត់ទួលស្វាយព្រៃទី១", "សង្កាត់ផ្សារដើមថ្កូវ"],
+                "ខណ្ឌទួលគោក": ["សង្កាត់បឹងកក់ទី១", "សង្កាត់បឹងកក់ទី២", "សង្កាត់បឹងសាឡាង", "សង្កាត់ទឹកល្អក់ទី១", "សង្កាត់ទឹកល្អក់ទី២"],
+                "ខណ្ឌមានជ័យ": ["សង្កាត់ចាក់អង្រែក្រោម", "សង្កាត់ចាក់អង្រែលើ", "សង្កាត់ស្ទឹងមានជ័យទី១", "សង្កាត់បឹងទំពន់ទី១"]
+            },
+            "ខេត្តសៀមរាប": {
+                "ក្រុងសៀមរាប": ["សង្កាត់ស្លក្រាម", "សង្កាត់ស្វាយដង្គំ", "សង្កាត់គោកចក", "សង្កាត់សំបួររនៀង", "សង្កាត់ទឹកវិល"],
+                "ស្រុកពួក": ["ឃុំពួក", "ឃុំសសរស្តម្ភ", "ឃុំព្រه‌នេត្រព្រះ", "ឃុំដូនកែว", "ឃុំខ្វាវ"],
+                "ស្រុកជីក្រែង": ["ឃុំជីក្រែង", "ឃុំពង្រ", "ឃុំគោកថ្ននท์", "ឃុំកំពង់ក្តី"]
+            },
+            "ខេត្តបាត់ដំបង": {
+                "ក្រុងបាត់ដំបង": ["សង្កាត់ស្វាយប៉ោ", "សង្កាត់វត្តគរ", "សង្កាត់ទួលតាឯក", "សង្កាត់ព្រែកព្រះស្តេច"],
+                "ស្រុកសង្កែ": ["ឃុំសង្កែ", "ឃុំវត្តតាម៉ឺន", "ឃុំអូររំដួល", "ឃុំរកា"]
+            },
+            "ខេត្តកណ្តាល": {
+                "ក្រុងតាខ្មៅ": ["សង្កាត់តាខ្មៅ", "សង្កាត់កំពង់សំណាញ់", "សង្កាត់ដើមគ", "សង្កាត់ព្រែកហូរ"],
+                "ស្រុកកៀនស្វាយ": ["ឃុំបន្ទាយដែក", "ឃុំកោះអន្លង់ចិន", "ឃុំឈើទាល", "ឃុំដីឥដ្ឋ"]
+            }
+        };
+
+        const standardProvinces = [
+            "រាជធានីភ្នំពេញ", "ខេត្តបន្ទាយមានជ័យ", "ខេត្តបាត់ដំបង", "ខេត្តកំពង់ចាម", 
+            "ខេត្តកំពង់ឆ្នាំង", "ខេត្តកំពង់ស្ពឺ", "ខេត្តកំពង់ធំ", "ខេត្តកំពត", 
+            "ខេត្តកណ្តាល", "ខេត្តកោះកុង", "ខេត្តក្រចេះ", "ខេត្តមណ្ឌលគិរី", 
+            "ខេត្តឧត្តរមានជ័យ", "ខេត្តពោធិ៍សាត់", "ខេត្តព្រះវិហារ", "ខេត្តព្រះសីហនុ", 
+            "ខេត្តព្រៃវែង", "ខេត្តរតនគិរី", "ខេត្តសៀមរាប", "ខេត្តស្ទឹងត្រែង", 
+            "ខេត្តស្វាយរៀង", "ខេត្តតាកែវ", "ខេត្តត្បូងឃ្មុំ", "ខេត្តកែប", "ខេត្តប៉ៃលិន"
+        ];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const provSelect = document.getElementById('reg-province');
+            provSelect.innerHTML = '<option value="">-- ជ្រើសរើសខេត្ត/រាជធានី --</option>';
+            standardProvinces.forEach(prov => {
+                const opt = document.createElement('option');
+                opt.value = prov;
+                opt.textContent = prov;
+                provSelect.appendChild(opt);
+            });
+        });
+
+        function updateDistricts() {
+            const prov = document.getElementById('reg-province').value;
+            const distSelect = document.getElementById('reg-district');
+            const commSelect = document.getElementById('reg-commune');
+            
+            distSelect.innerHTML = '<option value="">-- ជ្រើសរើសស្រុក/ខណ្ឌ --</option>';
+            commSelect.innerHTML = '<option value="">-- ជ្រើសរើសឃុំ/សង្កាត់ --</option>';
+
+            if (cambodiaGeography[prov]) {
+                Object.keys(cambodiaGeography[prov]).forEach(dist => {
+                    const opt = document.createElement('option');
+                    opt.value = dist;
+                    opt.textContent = dist;
+                    distSelect.appendChild(opt);
+                });
+            } else {
+                ['ក្រុង/ស្រុកទី១', 'ក្រុង/ស្រុកទី២', 'ក្រុង/ស្រុកទី៣'].forEach(d => {
+                    const opt = document.createElement('option');
+                    opt.value = d;
+                    opt.textContent = d;
+                    distSelect.appendChild(opt);
+                });
+            }
+        }
+
+        function updateCommunes() {
+            const prov = document.getElementById('reg-province').value;
+            const dist = document.getElementById('reg-district').value;
+            const commSelect = document.getElementById('reg-commune');
+            
+            commSelect.innerHTML = '<option value="">-- ជ្រើសរើសឃុំ/សង្កាត់ --</option>';
+
+            if (cambodiaGeography[prov] && cambodiaGeography[prov][dist]) {
+                cambodiaGeography[prov][dist].forEach(comm => {
+                    const opt = document.createElement('option');
+                    opt.value = comm;
+                    opt.textContent = comm;
+                    commSelect.appendChild(opt);
+                });
+            } else {
+                ['ឃុំ/សង្កាត់ទី១', 'ឃុំ/សង្កាត់ទី២', 'ឃុំ/សង្កាត់ទី៣'].forEach(c => {
+                    const opt = document.createElement('option');
+                    opt.value = c;
+                    opt.textContent = c;
+                    commSelect.appendChild(opt);
+                });
+            }
+        }
+
+        function handleRegistrationSubmit(event) {
+            event.preventDefault();
+            
+            const selectedCategories = [];
+            document.querySelectorAll('input[name="participation_cat"]:checked').forEach(cb => {
+                selectedCategories.push(cb.value);
+            });
+
+            if (selectedCategories.length === 0) {
+                alert("សូមជ្រើសរើសប្រភេទចូលរួមយ៉ាងហោចណាស់មួយ!");
+                return;
+            }
+
+            const memberData = {
+                id: "MSN-" + Math.floor(10000 + Math.random() * 90000),
+                name: document.getElementById('reg-name').value,
+                gender: document.getElementById('reg-gender').value,
+                phone: document.getElementById('reg-phone').value,
+                occupation: document.getElementById('reg-occupation').value,
+                province: document.getElementById('reg-province').value,
+                district: document.getElementById('reg-district').value,
+                commune: document.getElementById('reg-commune').value,
+                address: document.getElementById('reg-address').value,
+                categories: selectedCategories,
+                notes: document.getElementById('reg-notes').value,
+                date: new Date().toISOString().split('T')[0]
+            };
+
+            // Save to localStorage
+            let existingMembers = JSON.parse(localStorage.getItem('mohaserey_members') || '[]');
+            existingMembers.unshift(memberData);
+            localStorage.setItem('mohaserey_members', JSON.stringify(existingMembers));
+
+            // Show modal
+            document.getElementById('success-modal').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
